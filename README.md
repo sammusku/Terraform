@@ -1,6 +1,4 @@
 Terraform:
-
-Terraform
 We need to understand what are the advantages and problems terraform is solving. It is popular infrastructure as a tool (IaC) tool as of now. Advantages of IaC are
 
 Version Control:
