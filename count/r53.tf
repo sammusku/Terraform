@@ -7,3 +7,14 @@ resource "aws_route53_record" "www" {
   ttl     = 1
   records = [aws_instance.roboshop[count.index].private_ip]
 }
+
+#As part of functions
+
+resource "aws_route53_record" "www" {
+  zone_id = var.zone_id
+  #interpolation
+  name    = "roboshop.${var.domain_name}"
+  type    = "A"
+  ttl     = 1
+  records = [aws_instance.roboshop.index(var.instances , "frontend")].public.ip
+}
