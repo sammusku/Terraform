@@ -4,14 +4,14 @@ resource "aws_instance" "example" {
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
 
   tags = {
-    Name = "terraform-state"
+    Name = "terraform-remote-state"
     project = "roboshop"
   }
 }
 
 
 resource "aws_security_group" "allow_tls" {
-  name        = "allow_all_terraform"            # it is for AWS account
+  name        = "allow_all_terraform-remote-state"            # it is for AWS account
   description = "Allow TLS inbound traffic and all outbound traffic"
 
 
@@ -32,7 +32,7 @@ resource "aws_security_group" "allow_tls" {
   }
 
   tags = {
-    Name = "allow_all_terraform"
+    Name = "allow_all_terraform" 
   }
   
 }
