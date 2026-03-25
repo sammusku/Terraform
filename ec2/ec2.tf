@@ -11,7 +11,7 @@ resource "aws_instance" "example" {
 
 
 resource "aws_security_group" "allow_tls" {
-  name        = "allow_all_terraform"            # it is for AWS account
+  name        = "allow_all_terraform-change"            # it is for AWS account
   description = "Allow TLS inbound traffic and all outbound traffic"
 
 
@@ -30,9 +30,12 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+  lifecycle {
+    create_before_destroy = true
+  }
 
   tags = {
-    Name = "allow_all_terraform"
+    Name = "allow_all_terraform" 
   }
   
 }
